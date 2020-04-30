@@ -1,0 +1,11 @@
+<h1>Schedule</h1>
+<table>
+	<tr>
+	<th>Client</th>	<th>Phone</th>	<th>Date/Time</th>
+	</tr>
+<%@data.each do |line|%>
+	<tr>
+	<td><%=line[:client]%></td><td><%=line[:phone]%></td><td><%=line[:date_time]%></td>
+	</tr>
+<%end%>
+</table>

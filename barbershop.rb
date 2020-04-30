@@ -18,3 +18,26 @@ post '/' do
 	erb :message
 
 end
+
+get '/admin' do
+
+	output = File.open "./clients.txt", "r"
+	#"client=#{@user_name};phone=#{@phone};date_time=#{@date_time}"	
+	#data_string = output.gets 
+	@data = []
+	
+	while (line = output.gets)
+#		@data << line.chomp
+		@data_hash = {}
+		line.split(';') do |str_column|
+			arr_sub = str_column.split('=') 
+			@data_hash[arr_sub[0].to_sym] = arr_sub[1] 
+		end
+		@data << @data_hash
+	end 
+
+	output.close
+
+	erb :support
+
+end
