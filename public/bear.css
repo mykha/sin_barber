@@ -1,0 +1,10 @@
+.carousel-inner img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  /* дополнительно их выровняем по центру */
+  margin-left: auto;
+  margin-right: auto;
+  /* и добавим внешний нижний отступ */
+  margin-bottom: 15px;
+}

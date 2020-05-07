@@ -15,6 +15,21 @@ get '/' do
 	erb :index
 end
 
+get '/signupforashave' do
+	#erb "<h1>sign up for a shave</h1>"
+	erb :forshave
+end
+
+get '/signupforashave' do
+	#erb "<h1>sign up for a shave</h1>"
+	erb :forshave
+end
+
+get '/about' do
+	erb "<div class=\"jumbotron text-center\"> <p>a bear with a beard can bear almost anything</p></div><h1></h1>"
+	#erb :forshave
+end
+
 post '/' do
 
 	@user_name = params[:user_name]
