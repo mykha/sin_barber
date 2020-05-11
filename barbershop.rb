@@ -1,8 +1,65 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'data_mapper'
+require './secure.rb'
+
+DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/barbershop.db")
+
+=begin
+class User
+	include DataMapper::Resource
+	property :id, Serial
+	property :username, String, :required => true, key: true, unique_index: true
+	property :userpass, String, :required => true
+	property :supervisor, Boolean, :default => false
+#	property :password, String, length: 10..255
+end
+
+class Barber
+	include DataMapper::Resource
+	property :id, Serial
+	property :barbername, String, :required => true, key: true, unique_index: true
+	property :username, String, :required => true, key: true, unique_index: true
+#	property :password, String, length: 10..255
+end
+
+
+class Order
+	include DataMapper::Resource
+	property :id, Serial
+	property :client_name, Text, :required => true
+	property :client_phone, Text, :required => true
+	property :order_date,  DateTime, :required => true
+	has n, :services
+	belongs_to :barber
+end
+
+class Service
+	include DataMapper::Resource
+	property :id, Serial
+	property :name, Text, :required => true
+	has n, :tasks
+end
+
+DataMapper.finalize.auto_upgrade!
+=end
 
 configure do
   enable :sessions
+end
+
+helpers do
+  def username
+    session[:identity] ? session[:identity] : 'Hello stranger'
+  end
+end
+
+before '/secure/*' do
+  unless session[:identity]
+    session[:previous_url] = request.path
+    @error = 'Sorry, you need to be logged in to visit ' + request.path
+    halt erb(:login_form)
+  end
 end
 
 helpers do
