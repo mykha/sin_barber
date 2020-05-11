@@ -21,25 +21,27 @@ get '/signupforashave' do
 end
 
 get '/signupforashave' do
-	#erb "<h1>sign up for a shave</h1>"
-	erb :forshave
+	erb "<h1>sign up for a shave</h1>"
+	#erb :forshave
 end
 
 get '/about' do
-	erb "<div class=\"jumbotron text-center\"> <p>a bear with a beard can bear almost anything</p></div><h1></h1>"
-	#erb :forshave
+	#erb "<div class=\"jumbotron text-center\"> <p>a bear with a beard can bear almost anything</p></div><h1></h1>"
+	erb :about
 end
 
 post '/' do
 
-	@user_name = params[:user_name]
-	@phone = params[:phone]
-	@date_time = params[:date_time]
+	@user_name = params[:inputName]
+	@phone = params[:inputPhone]
+	@date_time = params[:inputDate]
+	@service = params[:inputService]
+	@barber = params[:inputBarber]
 	@title = "Thank you !"
 	@message = "Dear #{@user_name}, we are waiting for you #{@date_time}"
 
 	input = File.open "./clients.txt", "a"
-	input.puts "client=#{@user_name};phone=#{@phone};date_time=#{@date_time}"	
+	input.puts "client=#{@user_name};phone=#{@phone};date_time=#{@date_time}; service=#{@service};barber=#{@barber};"	
 	input.close
 	erb :message
 
