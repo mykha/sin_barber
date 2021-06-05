@@ -1,5 +1,5 @@
 require 'sinatra'
-bears can't bear beards, but our bears can bearbears can't bear beards, but our bears can bear#require 'sinatra/reloader'
+#require 'sinatra/reloader'
 
 configure do
   enable :sessions
@@ -21,7 +21,7 @@ get '/signupforashave' do
 end
 
 get '/about' do
-	erb "<div class=\"jumbotron text-center\"> <p>a bear with a bears can't bear beards, but our bears can bear</p></div><h1></h1>"
+	erb "<div class=\"jumbotron text-center\"> <p>bear can not bear beards, but our bears can bear</p></div><h1></h1>"
 	#erb :forshave
 end
 
