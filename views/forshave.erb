@@ -1,12 +1,50 @@
-<h1>Lorem ip</h1>
+<h1>Book Now</h1>
 <form action = "/" method="POST">
+	<div class="form-row">
+		<div class="form-group col-md-6 shadow bg-white rounded">
+			<label for="inputName">Your Name</label>
+			<input type="text" class="form-control" name="inputName" placeholder="Name">
+		</div>
+		<div class="form-group col-md-6">
+			<label for="inputPhone">Phone</label>
+			<input type="phone" class="form-control" name="inputPhone" placeholder="Phone">
+		</div>
+	</div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="input">Service</label>
+        <select name="inputService" class="form-control">
+        <option selected>Haircut</option>
+        <option>Beard Trim</option>
+      </select>
+    </div>  
+    <div class="form-group col-md-4">
+      <label for="inputBarber">Barber</label>
+      <select name="inputBarber" class="form-control">
+        <option selected>Any barber</option>
+        <option>Mike ($40)</option>
+        <option>Duke ($30)</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+    	<label for="inputDate">Введите дату:</label>
+    	<input type="date" class="form-control" name="inputDate">
+    </div>
+  </div>
+ <button type="submit" class="btn btn-dark">Sign in</button>    
+</form>
+
+
+ 
+
+<!--form action = "/" method="POST">
 
         Your name:
 	<p><input type="text" name="user_name"></input></p>
         Your phone:
 	<p><input type="text" name="phone"></input></p>
         Date and time:
-	<p><input type="text" name="date_time"></input></p>
+	<p><input type="date" name="date_time"></input></p>
 	<p><input type="submit"></input></p>
 
-</form>
+</form-->
